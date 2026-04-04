@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Simonprototype</string>
+    <string name="app_name">Simon Game</string>
+    <string name="thisisgame">This is Activity Game</string>
+    <string name="thisisscore">This is Activity Score</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="checkme">Check me</string>
 </resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/ActivityGameFragment">
+
+    <fragment
+        android:id="@+id/ActivityGameFragment"
+        android:name="com.example.simonprototype.ActivityGameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_activityFragment_to_activity2"
+            app:destination="@id/activity_score" />
+    </fragment>
+    <activity
+        android:id="@+id/activity_score"
+        android:name="com.example.simonprototype.ActivityScore"
+        android:label="activity_score"
+        tools:layout="@layout/activity_score" />
+</navigation>
