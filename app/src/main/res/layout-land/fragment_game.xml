@@ -6,21 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ActivityGameFragment">
 
-<!--    <TextView-->
-<!--        android:id="@+id/TextView1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/thisisgame"-->
-<!--        android:textAlignment="center"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/Button_1"/>-->
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
+        app:layout_constraintGuide_percent="0.28" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.34" />
 
     <Button
         android:id="@+id/Button_1"
@@ -28,11 +26,8 @@
         android:layout_height="120dp"
         android:contentDescription="@string/red"
         android:backgroundTint="#ff0000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        tools:layout_editor_absoluteX="90dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
         />
 
     <Button
@@ -89,6 +84,13 @@
         app:layout_constraintTop_toBottomOf="@id/Button_6"
         app:layout_constraintBottom_toTopOf="@id/Button1"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.78" />
+
     <Button
         android:id="@+id/Button4"
         android:layout_width="wrap_content"
@@ -96,10 +98,11 @@
         android:text="@string/reset"
         android:textSize="18sp"
         app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/guideline"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="@id/guideline"
+        app:layout_constraintRight_toRightOf="@+id/guideline3"/>
 
     <Button
         android:id="@+id/Button1"
@@ -109,7 +112,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/guideline"
+        app:layout_constraintLeft_toRightOf="@id/guideline3"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.95"/>
 
