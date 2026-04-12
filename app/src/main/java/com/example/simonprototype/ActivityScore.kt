@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class ActivityScore : AppCompatActivity()
 {
@@ -14,13 +16,29 @@ class ActivityScore : AppCompatActivity()
         WindowCompat.enableEdgeToEdge(window)
         setContentView(R.layout.activity_score)
 
-        val previous : Button = findViewById(R.id.Button2)
+        val recyclerview : RecyclerView = findViewById(R.id.RecyclerView)
+
+        recyclerview.layoutManager = LinearLayoutManager(this)
+
+        val data = ArrayList<Item>()
+
+        var scorefill = ""
+
+        val scoresample = "RGBMYC"
+
+        for (i in 0..5) {
+            scorefill += scoresample[i].toString()
+            data.add(Item(scorefill.length, scorefill))
+        }
+
+        val adapter = Adapter(data)
+
+        recyclerview.adapter = adapter
+
+        val previous : Button = findViewById(R.id.Button_Start)
         previous.setOnClickListener {
             // Note: no result is communicated to the caller
             finish()
         }
-
-        // Ensure that system bars remain visible regardless of the background color:
-        // can be done via XML styling because minSdk is 27
     }
 }

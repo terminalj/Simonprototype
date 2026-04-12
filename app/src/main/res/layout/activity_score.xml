@@ -9,7 +9,7 @@
     tools:context=".ActivityScore">
 
     <Button
-        android:id="@+id/Button2"
+        android:id="@+id/Button_Start"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/previous"
@@ -25,8 +25,9 @@
         android:id="@+id/RecyclerView"
         android:layout_width="300dp"
         android:layout_height="500dp"
+        tools:listitem="@layout/score_element"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/Button2"
+        app:layout_constraintBottom_toTopOf="@id/Button_Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"/>
