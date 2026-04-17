@@ -11,110 +11,120 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.28" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.34" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <Button
-        android:id="@+id/Button_1"
+        android:id="@+id/Button_Red"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/red"
         android:backgroundTint="#ff0000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
-        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:layout_editor_absoluteX="90dp"
         />
 
     <Button
-        android:id="@+id/Button_2"
+        android:id="@+id/Button_Green"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/green"
         android:backgroundTint="#00ff00"
-        app:layout_constraintTop_toTopOf="@id/Button_1"
-        app:layout_constraintLeft_toRightOf="@id/Button_1"/>
+        app:layout_constraintTop_toTopOf="@id/Button_Red"
+        app:layout_constraintLeft_toRightOf="@id/Button_Red"/>
 
     <Button
-        android:id="@+id/Button_3"
+        android:id="@+id/Button_Blue"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/blue"
         android:backgroundTint="#0000ff"
-        app:layout_constraintTop_toBottomOf="@id/Button_1"
-        app:layout_constraintLeft_toLeftOf="@id/Button_1"/>
+        app:layout_constraintTop_toBottomOf="@id/Button_Red"
+        app:layout_constraintLeft_toLeftOf="@id/Button_Red"/>
 
     <Button
-        android:id="@+id/Button_4"
+        android:id="@+id/Button_Magenta"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/magenta"
         android:backgroundTint="#ff00ff"
-        app:layout_constraintTop_toBottomOf="@id/Button_2"
-        app:layout_constraintLeft_toRightOf="@id/Button_3"/>
+        app:layout_constraintTop_toBottomOf="@id/Button_Green"
+        app:layout_constraintLeft_toRightOf="@id/Button_Blue"/>
 
     <Button
-        android:id="@+id/Button_5"
+        android:id="@+id/Button_Yellow"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/yellow"
         android:backgroundTint="#ffff00"
-        app:layout_constraintTop_toBottomOf="@id/Button_3"
-        app:layout_constraintLeft_toLeftOf="@id/Button_3"/>
+        app:layout_constraintTop_toBottomOf="@id/Button_Blue"
+        app:layout_constraintLeft_toLeftOf="@id/Button_Blue"/>
 
     <Button
-        android:id="@+id/Button_6"
+        android:id="@+id/Button_Cyan"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:contentDescription="@string/cyan"
         android:backgroundTint="#00ffff"
-        app:layout_constraintTop_toBottomOf="@id/Button_4"
-        app:layout_constraintLeft_toRightOf="@id/Button_5"/>
+        app:layout_constraintTop_toBottomOf="@id/Button_Magenta"
+        app:layout_constraintLeft_toRightOf="@id/Button_Yellow"/>
 
     <TextView
         android:id="@+id/TextGame"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sequence"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/Button_6"
-        app:layout_constraintBottom_toTopOf="@id/Button1"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelinecentervertical"
+        app:layout_constraintLeft_toLeftOf="@id/guidelinecenter"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guidelineright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinecenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinecentervertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
 
     <Button
-        android:id="@+id/Button4"
+        android:id="@+id/Button_Reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/reset"
         android:textSize="18sp"
-        app:layout_constraintVertical_bias="0.95"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/guideline"
-        app:layout_constraintRight_toRightOf="@+id/guideline3"/>
+        app:layout_constraintBottom_toTopOf="@id/Button_End"
+        app:layout_constraintTop_toBottomOf="@id/guidelinecentervertical"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/guidelinecenter"/>
 
     <Button
-        android:id="@+id/Button1"
+        android:id="@+id/Button_End"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/toscore"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/guideline3"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_bias="0.95"/>
+        app:layout_constraintTop_toBottomOf="@id/Button_Reset"
+        app:layout_constraintLeft_toRightOf="@id/guidelinecenter"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
