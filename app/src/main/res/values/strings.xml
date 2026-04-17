@@ -2,16 +2,23 @@
     <string name="app_name">Simon Game</string>
     <string name="thisisgame">This is Activity Game</string>
     <string name="thisisscore">This is Activity Score</string>
-    <string name="score">LARGE PLACEHOLDER</string>
-    <string name="sequence">PLACEHOLDER</string>
-    <string name="reset">Cancella</string>
-    <string name="toscore">Fine Partita</string>
+    <string name="score" translatable="false">LARGE PLACEHOLDER</string>
+    <string name="reset">Reset</string>
+    <string name="toscore">End Game</string>
     <string name="previous">Previous</string>
-    <string name="checkme">Check me</string>
     <string name="red">red</string>
     <string name="green">green</string>
     <string name="blue">blue</string>
     <string name="magenta">magenta</string>
     <string name="yellow">yellow</string>
     <string name="cyan">cyan</string>
+    <string name="start" translatable="false">PLACEHOLDER</string>
+    <string name="sequence" translatable="false">%1$s, %2$s</string>
+    <string name="R" translatable="false">R</string>
+    <string name="G" translatable="false">G</string>
+    <string name="B" translatable="false">B</string>
+    <string name="M" translatable="false">M</string>
+    <string name="Y" translatable="false">Y</string>
+    <string name="C" translatable="false">C</string>
+
 </resources>

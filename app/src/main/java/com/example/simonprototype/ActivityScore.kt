@@ -22,13 +22,15 @@ class ActivityScore : AppCompatActivity() {
 
         // Pass the static list to the adapter
         val adapter = Adapter(scoreHistory)
-        recyclerview.adapter = adapter
 
+        recyclerview.adapter = adapter
         val currentScore = intent.getStringExtra("saveScore")
-        if (currentScore != null && currentScore != "PLACEHOLDER") {
-            scoreHistory.add(Item(currentScore.length, currentScore))
+        val currentCount = intent.getIntExtra("saveCount", 0)
+        if (currentScore != null && currentScore != "ALREADY") {
+            scoreHistory.add(Item(currentCount, currentScore))
             // CRITICAL: Tell the adapter a new item was added
             adapter.notifyItemInserted(scoreHistory.size - 1)
+            intent.putExtra("saveScore", "ALREADY")
         }
 
         findViewById<Button>(R.id.Button_Start).setOnClickListener { finish() }

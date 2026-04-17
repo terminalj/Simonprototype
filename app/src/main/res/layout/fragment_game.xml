@@ -75,11 +75,10 @@
         android:id="@+id/TextGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sequence"
+        android:textSize="32sp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/Button_Cyan"
-        app:layout_constraintBottom_toTopOf="@id/Button_End"
-        />
+        app:layout_constraintBottom_toTopOf="@id/Button_End"/>
 
     <Button
         android:id="@+id/Button_Reset"
@@ -104,6 +103,5 @@
         app:layout_constraintLeft_toRightOf="@id/guideline"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.95"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

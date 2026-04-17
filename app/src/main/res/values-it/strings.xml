@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gioco di Simon</string>
+    <string name="thisisgame">Questa è l\'Activity Gioco</string>
+    <string name="thisisscore">Questa è l\'Activity Punteggio</string>
+    <string name="reset">Cancella</string>
+    <string name="toscore">Fine Partita</string>
+    <string name="previous">Indietro</string>
+    <string name="red">rosso</string>
+    <string name="green">verde</string>
+    <string name="blue">blu</string>
+    <string name="magenta">magenta</string>
+    <string name="yellow">giallo</string>
+    <string name="cyan">ciano</string>
+</resources>
