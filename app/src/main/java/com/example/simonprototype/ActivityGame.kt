@@ -11,6 +11,7 @@ class ActivityGame : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         WindowCompat.enableEdgeToEdge(window)
+        // call to ActivityGameFragment in layout set
         setContentView(R.layout.activity_game)
     }
 }
