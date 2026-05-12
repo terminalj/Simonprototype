@@ -20,5 +20,6 @@
     <string name="M" translatable="false">M</string>
     <string name="Y" translatable="false">Y</string>
     <string name="C" translatable="false">C</string>
+<!--    <string name="sequenceformat" translatable="false"> %1$s, <font color="#FF0000">%2$s</font></string>-->
 
 </resources>

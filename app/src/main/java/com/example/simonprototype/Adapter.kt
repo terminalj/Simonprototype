@@ -1,10 +1,15 @@
 package com.example.simonprototype
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import android.text.style.ForegroundColorSpan
+import android.text.Spannable
+import android.text.SpannableString
+
 
 class Adapter(private val list: List<Item>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
@@ -26,8 +31,19 @@ class Adapter(private val list: List<Item>) : RecyclerView.Adapter<Adapter.ViewH
         // sets the image to the imageview from our itemHolder class
         holder.numberView.text = item.number.toString()
 
+        val spannable = SpannableString(item.text)
+
+        //index maps: 0 to 0, 1 to 3, 2 to 6, 3 to 9...
+        //maybe remove spaces?
+        val index = item.index
+
+        val convertedindex = 3 * index
+
+        spannable.setSpan(ForegroundColorSpan(Color.RED), convertedindex,item.text.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
         // sets the text to the textview from our itemHolder class
-        holder.textView.text = item.text
+        holder.textView.text = spannable
+
 
     }
 

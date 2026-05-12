@@ -28,9 +28,10 @@ class ActivityScore : AppCompatActivity() {
         // set passed data from game fragment to score
         val currentScore = intent.getStringExtra("saveScore")
         val currentCount = intent.getIntExtra("saveCount", 0)
+        val currentFail = 1
         // accept data if consistent
         if (currentScore != null && currentScore != "ALREADY") {
-            scoreHistory.add(Item(currentCount, currentScore))
+            scoreHistory.add(Item(currentCount, currentFail, currentScore))
             // CRITICAL: Tell the adapter a new item was added
             adapter.notifyItemInserted(scoreHistory.size - 1)
             // avoid double entry
