@@ -1,5 +1,6 @@
 package com.example.simonprototype
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,9 @@ class ActivityScore : AppCompatActivity() {
             intent.putExtra("saveScore", "ALREADY")
         }
         // click listener for back button to close activity
-        findViewById<Button>(R.id.Button_Start).setOnClickListener { finish() }
+        findViewById<Button>(R.id.Button_Start).setOnClickListener {
+            val intent = Intent(this@ActivityScore, ActivityGame::class.java)
+            startActivity(intent)
+        }
     }
 }
