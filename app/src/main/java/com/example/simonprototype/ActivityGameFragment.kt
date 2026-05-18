@@ -11,34 +11,33 @@ import androidx.fragment.app.Fragment
 
 class ActivityGameFragment : Fragment()
 {
-    // count is public
-    var count = 0
-    // View initialization logic
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,
-                              savedInstanceState: Bundle?): View
+    var sequence = ""
+
+    private lateinit var dbHelper: DatabaseHelper
+
+    private lateinit var btnPause: Button
+    private lateinit var btnEnd: Button
+    private lateinit var tv: TextView
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
-        return inflater.inflate(R.layout.fragment_game,
-            container,
-            false)
+        return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
-    // Post view initialization logic
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
-        // initialize TextView variable to tv
-        val tv : TextView = view.findViewById(R.id.TextGame)
-        val next : Button = view.findViewById(R.id.Button_End)
-        // start activity_score on next click
-        next.setOnClickListener {
-            //send data through activities via intent
+        dbHelper = DatabaseHelper(requireContext())
+        tv = view.findViewById(R.id.TextGame)
+        btnPause = view.findViewById(R.id.Button_Reset)
+        btnEnd = view.findViewById(R.id.Button_End)
+
+
+        btnEnd.setOnClickListener {
             val intent = Intent(requireContext(), ActivityScore::class.java)
-            intent.putExtra("saveScore", tv.text.toString())
-            intent.putExtra("saveCount", count)
+            saveGameToDB()
             startActivity(intent)
-            // reset data values
             tv.text = ""
-            count = 0
+            sequence = ""
         }
         // red button declaration
         val red : Button = view.findViewById(R.id.Button_Red)
@@ -50,8 +49,7 @@ class ActivityGameFragment : Fragment()
                 tv.text = "R"
             // else concatenate with what came before
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.R))
-            // increase count
-            count++
+            sequence = sequence.plus("R")
         }
 
         val green : Button = view.findViewById(R.id.Button_Green)
@@ -59,7 +57,7 @@ class ActivityGameFragment : Fragment()
             if (tv.text.toString() == "")
                 tv.text = "G"
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.G))
-            count++
+            sequence = sequence.plus("G")
         }
 
         val blue : Button = view.findViewById(R.id.Button_Blue)
@@ -67,7 +65,7 @@ class ActivityGameFragment : Fragment()
             if (tv.text.toString() == "")
                 tv.text = "B"
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.B))
-            count++
+            sequence = sequence.plus("B")
         }
 
         val magenta : Button = view.findViewById(R.id.Button_Magenta)
@@ -75,7 +73,7 @@ class ActivityGameFragment : Fragment()
             if (tv.text.toString() == "")
                 tv.text = "M"
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.M))
-            count++
+            sequence = sequence.plus("M")
         }
 
         val yellow : Button = view.findViewById(R.id.Button_Yellow)
@@ -83,7 +81,7 @@ class ActivityGameFragment : Fragment()
             if (tv.text.toString() == "")
                 tv.text = "Y"
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.Y))
-            count++
+            sequence = sequence.plus("Y")
         }
 
         val cyan : Button = view.findViewById(R.id.Button_Cyan)
@@ -91,34 +89,33 @@ class ActivityGameFragment : Fragment()
             if (tv.text.toString() == "")
                 tv.text = "C"
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.C))
-            count++
+            sequence = sequence.plus("C")
         }
-        val reset : Button = view.findViewById(R.id.Button_Reset)
-        reset.setOnClickListener {
-            // reset sequence and count
+        btnPause.setOnClickListener {
             tv.text = ""
-            count = 0
+            sequence = ""
         }
     }
-    // function to save State Instance on focus loss
+
+    private fun saveGameToDB() {
+        val score = sequence.length - 1
+        if (score == 0) return
+        dbHelper.insertGame(sequence.length, sequence.length-1, tv.text as String)
+    }
+
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        // assignment of TextGame TextView to tv necessary from incapsulation
         val tv : TextView = requireView().findViewById(R.id.TextGame)
-        // saving values to InstanceState with keywords
-        outState.putString("Sequence", tv.text.toString())
-        // count is public
-        outState.putInt("Count", count)
+        outState.putString("Sequence", sequence)
+        outState.putString("SequenceViewed", tv.text.toString())
     }
-    // function to restore Instance State on focus gain
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        // assignment of TextGame TextView to tv necessary from incapsulation
         val tv : TextView = requireView().findViewById(R.id.TextGame)
-        // assignment of values from InstanceState with keywords
         if (savedInstanceState != null) {
-            tv.text = savedInstanceState.getString("Sequence")
-            count = savedInstanceState.getInt("Count")
+            sequence = savedInstanceState.getString("Sequence").toString()
+            tv.text = savedInstanceState.getString("SequenceViewed")
         }
     }
 }
