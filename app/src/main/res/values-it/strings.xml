@@ -12,4 +12,8 @@
     <string name="magenta">magenta</string>
     <string name="yellow">giallo</string>
     <string name="cyan">ciano</string>
+    <string name="start">inizia</string>
+    <string name="pause" >pausa</string>
+    <string name="continuee" >riprendi</string>
+    <string name="sequence_error" >errore riproduzione</string>
 </resources>

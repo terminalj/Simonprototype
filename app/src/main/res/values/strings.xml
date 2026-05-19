@@ -12,7 +12,7 @@
     <string name="magenta">magenta</string>
     <string name="yellow">yellow</string>
     <string name="cyan">cyan</string>
-    <string name="start" translatable="false">PLACEHOLDER</string>
+    <string name="start">start</string>
     <string name="sequence" translatable="false">%1$s, %2$s</string>
     <string name="R" translatable="false">R</string>
     <string name="G" translatable="false">G</string>
@@ -20,6 +20,8 @@
     <string name="M" translatable="false">M</string>
     <string name="Y" translatable="false">Y</string>
     <string name="C" translatable="false">C</string>
-<!--    <string name="sequenceformat" translatable="false"> %1$s, <font color="#FF0000">%2$s</font></string>-->
+    <string name="pause" >pause</string>
+    <string name="continuee" >continue</string>
+    <string name="sequence_error" >sequence error</string>
 
 </resources>

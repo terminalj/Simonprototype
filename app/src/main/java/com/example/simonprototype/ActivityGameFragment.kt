@@ -11,11 +11,17 @@ import androidx.fragment.app.Fragment
 
 class ActivityGameFragment : Fragment()
 {
+
+    // gameState: 0(start/end), 1 (computer), 2(player)
+    var gameState = 0
+    var isPaused = false
+
     var sequence = ""
 
     private lateinit var dbHelper: DatabaseHelper
 
-    private lateinit var btnPause: Button
+    private lateinit var btnStart: Button
+    private lateinit var btnReset: Button
     private lateinit var btnEnd: Button
     private lateinit var tv: TextView
 
@@ -28,8 +34,9 @@ class ActivityGameFragment : Fragment()
     {
         dbHelper = DatabaseHelper(requireContext())
         tv = view.findViewById(R.id.TextGame)
-        btnPause = view.findViewById(R.id.Button_Reset)
+        btnReset = view.findViewById(R.id.Button_Reset)
         btnEnd = view.findViewById(R.id.Button_End)
+        btnStart = view.findViewById(R.id.Button_Start)
 
 
         btnEnd.setOnClickListener {
@@ -38,6 +45,14 @@ class ActivityGameFragment : Fragment()
             startActivity(intent)
             tv.text = ""
             sequence = ""
+        }
+
+        btnStart.setOnClickListener {
+            if (gameState == 0) {
+                gameState = 1
+            }
+            else {isPaused = !isPaused}
+            btnStart.text = if (isPaused) {getString(R.string.continuee)} else {getString(R.string.pause)}
         }
         // red button declaration
         val red : Button = view.findViewById(R.id.Button_Red)
@@ -91,9 +106,11 @@ class ActivityGameFragment : Fragment()
             else tv.text = String.format(getString(R.string.sequence), tv.text, getString(R.string.C))
             sequence = sequence.plus("C")
         }
-        btnPause.setOnClickListener {
+        btnReset.setOnClickListener {
             tv.text = ""
             sequence = ""
+            gameState = 0
+            btnStart.text = getString(R.string.start)
         }
     }
 
